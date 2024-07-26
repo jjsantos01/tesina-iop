@@ -1,0 +1,1096 @@
+------------------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  E:\dropbox\tesina\emovi2011\logs\ModificacioneEmovi2011.log
+  log type:  text
+ opened on:  20 Sep 2016, 00:22:12
+
+. use "${E}emovi2011modEntrevistado.dta", clear
+
+. 
+. ****************************
+. ** Recoding missing*********
+. ****************************
+. recode p27_1 p27_2      p32_1    p54    p56     p124    p127a   p127b p133a     p134a   
+> p133b   p134b   p151    p154_1  p155    esc_ent p50     p169    p18     p19     p173_1  
+> p173_2  p174_1  p174_2  p177    p43_1   p47     p73     p74     p143a   p143b   p160 p83
+>  p43 p126* p153 p154 p162 (98 99 =.)
+(p27_1: 29 changes made)
+(p27_2: 246 changes made)
+(p32_1: 84 changes made)
+(p54: 113 changes made)
+(p56: 127 changes made)
+(p124: 76 changes made)
+(p127a: 4753 changes made)
+(p127b: 4349 changes made)
+(p133a: 264 changes made)
+(p134a: 516 changes made)
+(p133b: 222 changes made)
+(p134b: 445 changes made)
+(p151: 36 changes made)
+(p154_1: 137 changes made)
+(p155: 180 changes made)
+(esc_ent: 29 changes made)
+(p50: 882 changes made)
+(p169: 82 changes made)
+(p18_: 29 changes made)
+(p19_: 21 changes made)
+(p173_1: 60 changes made)
+(p173_2: 92 changes made)
+(p174_1: 31 changes made)
+(p174_2: 86 changes made)
+(p177: 117 changes made)
+(p43_1: 31 changes made)
+(p47: 586 changes made)
+(p73: 55 changes made)
+(p74: 266 changes made)
+(p143a: 259 changes made)
+(p143b: 63 changes made)
+(p160: 272 changes made)
+(p83: 587 changes made)
+(p43: 35 changes made)
+(p126a: 4970 changes made)
+(p126b: 4585 changes made)
+(p153: 302 changes made)
+(p154: 148 changes made)
+(p162: 66 changes made)
+
+. recode p129a    p129b   p131a   p131b   p138a   p138b   p22_    p28     p30     p33     
+> p46* p71 p78 p144a      p144b   p148a   p149a   p156* p157* p158* p159* p44* p62 p81 (8 
+> 9=.)
+(p129a: 688 changes made)
+(p129b: 360 changes made)
+(p131a: 939 changes made)
+(p131b: 568 changes made)
+(p138a: 953 changes made)
+(p138b: 557 changes made)
+(p22_: 8 changes made)
+(p28: 143 changes made)
+(p30: 21 changes made)
+(p33: 50 changes made)
+(p46a: 10 changes made)
+(p46b: 8 changes made)
+(p46c: 9 changes made)
+(p46d: 10 changes made)
+(p46e: 12 changes made)
+(p46f: 9 changes made)
+(p46g: 10 changes made)
+(p46h: 16 changes made)
+(p46i: 11 changes made)
+(p46j: 12 changes made)
+(p46k: 17 changes made)
+(p46l: 17 changes made)
+(p46m: 13 changes made)
+(p46n: 15 changes made)
+(p46o: 14 changes made)
+(p46p: 34 changes made)
+(p46q: 250 changes made)
+(p46r: 23 changes made)
+(p46s: 24 changes made)
+(p71: 20 changes made)
+(p78: 23 changes made)
+(p144a: 214 changes made)
+(p144b: 59 changes made)
+(p148a: 392 changes made)
+(p149a: 756 changes made)
+(p156a: 27 changes made)
+(p156b: 23 changes made)
+(p156c: 26 changes made)
+(p156d: 21 changes made)
+(p156e: 22 changes made)
+(p156f: 22 changes made)
+(p156g: 26 changes made)
+(p156h: 22 changes made)
+(p156i: 21 changes made)
+(p156j: 19 changes made)
+(p156k: 48 changes made)
+(p156l: 257 changes made)
+(p156m: 30 changes made)
+(p157a: 51 changes made)
+(p157b: 48 changes made)
+(p157c: 49 changes made)
+(p157d: 54 changes made)
+(p158a: 39 changes made)
+(p158b: 38 changes made)
+(p159a: 49 changes made)
+(p159b: 52 changes made)
+(p159c: 46 changes made)
+(p159d: 52 changes made)
+(p159e: 62 changes made)
+(p159f: 93 changes made)
+(p159g: 89 changes made)
+(p159h: 87 changes made)
+(p159i: 53 changes made)
+(p159j: 63 changes made)
+(p44a: 8 changes made)
+(p44b: 7 changes made)
+(p44c: 8 changes made)
+(p44d: 9 changes made)
+(p44e: 8 changes made)
+(p44f: 10 changes made)
+(p44g: 10 changes made)
+(p62: 4 changes made)
+(p81: 87 changes made)
+
+. recode p82      p90     p93     p49 (999998 999999 9999998=.) 
+(p82: 2352 changes made)
+(p90: 38 changes made)
+(p93: 223 changes made)
+(p49: 4320 changes made)
+
+. recode edattan_deta (989 999=.)
+(edattan_deta: 29 changes made)
+
+. recode p32_1 (94=.)
+(p32_1: 1 changes made)
+
+. recode p72 (998 999=.)
+(p72: 30 changes made)
+
+. ****************************
+. *** Rellenando missings ****
+. ****************************
+. * Modificando pregunta: Número de personas que viven en el hogar
+. replace p6 = p3 if p4==1
+(10,708 real changes made)
+
+. * Modificando pregunta: Ocupación del padre
+. replace p139ai08 = 0 if p138a == 2 // Ocupación del padre, 0 indica que el padre no trab
+> ajaba
+(948 real changes made)
+
+. label define p139ai08 0 "No trabajaba", modify
+
+. * Modificando pregunta: Ocupación de la madre
+. replace p141bi08 = 0 if p138b == 2 // Ocupación de la madre, 0 indica que madre no traba
+> ja
+(8,224 real changes made)
+
+. label define p141bi08 0 "No trabajaba", modify
+
+. * Modificando pregunta: estado en el que vivía a los 14 años
+. replace p32_1 = p27_1 if p29 == 97 // Estado en el que vivía  a los 14 años, p29 == 97 s
+> ignifica que vivía en el mismo estado que nació
+(4,306 real changes made)
+
+. replace p32_1 = 90 if p31 == 2 // p31 == 2, vivía en el extranjero cuando tenía 14 años
+(93 real changes made)
+
+. label define p32_1 90 "En otro país", modify
+
+. * Modificando pregunta: edad a la que terminó la primaria
+. replace p54 = 0 if p18==97 | p54==96 | p54==97 // p18==97, el entrevistado no estudió o 
+> no terminó
+(1,653 real changes made)
+
+. label define p54 0 "Sin estudios/no terminó", modify
+
+. rename p54 edad_prim
+
+. * Modificando pregunta: edad a la que terminó la secundaria
+. replace p56 = 0 if p18==1 | p18==2 | p18==97 | p56==96 | p56==97 // p18==97 el entrevist
+> ado no estudió,p18==2 el entrevistado no llegó a secundaria, no la terminó o sigue estud
+> iando
+(4,213 real changes made)
+
+. label define p56 0 "Sin estudios/no llegó/no terminó", modify
+
+. rename p56 edad_secu
+
+. * Modificando pregunta: años de escolaridad del padre
+. replace yearschlp = . if p131a==. // p131a==. el entrevistado no contestó si su padre as
+> istió a la escuela
+(940 real changes made, 940 to missing)
+
+. replace yearschlp = . if  p133a==. & p131a==1 //  p133a==. & p131a==1 el entrevistado co
+> ntestó que su padre asistió a la escuela, pero no reportó a qué nivel educativo llegó
+(264 real changes made, 264 to missing)
+
+. * Modificando pregunta: Nivel de educación que alcanzó el padre, codifificación internac
+> ional
+. replace edattan_gralp = . if yearschlp==.
+(1,204 real changes made, 1,204 to missing)
+
+. rename edattan_gralp niveledu_pad
+
+. gen niveledu_pad2 = niveledu_pad
+(1,204 missing values generated)
+
+. replace niveledu_pad=5 if niveledu_pad==.
+(1,204 real changes made)
+
+. label define edattan_gralp 5 "missing", add
+
+. label values niveledu_pad edattan_gralp
+
+. * Modificando pregunta: años de escolaridad de la madre
+. replace yearschlm = . if p131b==. // p131b==. el entrevistado no contestó si su madre as
+> istió a la escuela
+(569 real changes made, 569 to missing)
+
+. replace yearschlm = . if  p133b==. & p131b==1 //  p133a==. & p131a==1 el entrevistado co
+> ntestó que su madre asistió a la escuela, pero no reportó a qué nivel educativo llegó
+(222 real changes made, 222 to missing)
+
+. * Modificando pregunta: Nivel de educación que alcanzó la madre, codifificación internac
+> ional
+. replace edattan_gralm = . if yearschlm==.
+(791 real changes made, 791 to missing)
+
+. rename edattan_gralm  niveledu_mad
+
+. gen niveledu_mad2 = niveledu_mad
+(791 missing values generated)
+
+. replace niveledu_mad=5 if niveledu_mad==.
+(791 real changes made)
+
+. label define edattan_gralm 5 "missing", add
+
+. label values niveledu_mad edattan_gralm
+
+. * Modificando pregunta: años de escolaridad del entrevistado
+. replace yearschl = . if esc_ent==.
+(29 real changes made, 29 to missing)
+
+. * Modificando pregunta: Nivel de escolaridad del entrevistado, codificación internaciona
+> l
+. replace edattan_esp = . if yearschl==.
+(29 real changes made, 29 to missing)
+
+. rename edattan_esp niveledu
+
+. * Modificando pregunta: Nivel de escolaridad del entrevistado, codificación internaciona
+> l detallada
+. replace edattan_det = . if yearschl==.
+(0 real changes made)
+
+. rename edattan_det niveledu_det
+
+. * Modificando pregunta: Cuánto gana por los trabajos que realiza sin contar su trabajo p
+> rincipal
+. recode p90 (.=0)
+(p90: 10921 changes made)
+
+. * Modificando pregunta: Cuánto recibe de ingreso no laboral
+. recode p93 (.=0)
+(p93: 10186 changes made)
+
+. * Modificando pregunta: cuál es el rango de ingresos del hogar
+. replace p50 = 0 if p49!=0 & p49!=.
+(6,681 real changes made)
+
+. label define p50 0 "Respondió el valor", modify
+
+. * Modificando pregunta: Cuántas personas tiene a cargo en su trabajo
+. replace p72 = 0 if p71==2 // p71==2 significa que no tiene personas a cargo
+(5,966 real changes made)
+
+. * Modificando pregunta: cuando tenía 14 años, había servicio doméstico algunos días en s
+> u casa
+. replace p156l = 0 if p156k==1 // p156k==1 significan que tenían servicio permanente
+(205 real changes made)
+
+. label define p156l 0 "Tenía servicio permanente", modify
+
+. * Modificando pregunta: Ingreso que recibe por su trabajo principal
+. replace p82 = 0 if p62==3 & p82==. // p62==3 significa que no trabaja
+(3,915 real changes made)
+
+. * Recoding variable sexo
+. rename sex_ent sexo
+
+. recode sexo (2=0)
+(sexo: 4990 changes made)
+
+. label define sexo 1 "Hombre" 0 "Mujer", replace
+
+. label values sexo sexo
+
+. * Creando variable de condición de trabajador
+. gen trabaj = (p21_==1 |p21_==2 | p21_==3 | p21_==7 | p21_==8 ) if p21_!=.
+
+. label define trabaj 1 "Sí trabaja" 0 "No trabaja", replace
+
+. label values trabaj trabaj
+
+. * Renombrando variable de edad
+. rename edad_ent edad
+
+. label var edad edad
+
+. * Renombrando variable de escolaridad del entrevistado
+. rename yearschl escol
+
+. label var escol "Escolaridad del entrevistado"
+
+. * Creando variable de rezago educativo
+. qui sum edad_prim, detail 
+
+. gen rez_prim = sign(edad_prim -r(p50))+2 if edad_prim!=0
+(1,805 missing values generated)
+
+. replace rez_prim = 0 if edad_prim==0
+(1,653 real changes made)
+
+. label define rez_prim 0 "Sin estudios/no terminó" 1 "Rezagado" 2 "No rezagado" 3 "Adelan
+> tado"
+
+. label values rez_prim rez_prim
+
+. * Creando variable de rezago educativo
+. qui sum edad_secu, detail 
+
+. gen rez_secu = sign(edad_secu -r(p50))+2 if edad_secu!=0
+(4,355 missing values generated)
+
+. replace rez_secu = 0 if edad_secu==0
+(4,213 real changes made)
+
+. label define rez_secu 0 "Sin estudios/no terminó" 1 "Rezagado" 2 "No rezagado" 3 "Adelan
+> tado"
+
+. label values rez_secu rez_secu
+
+. * Creando variable de nivel socioeconómico AMAI del hogar entrevistado
+. gen niv_soc = (nivel_sa<=3) if nivel_sa!=.
+(811 missing values generated)
+
+. label var niv_soc "Nivel socioeconómico"
+
+. label define niv_soc 0 "Bajo" 1 "Alto"
+
+. label values  niv_soc niv_soc
+
+. * Creando variable de residencia urbana del entrevistado
+. gen urbano = (tamloc>=2) if tamloc!=.
+
+. label var urbano "La persona vive en zona urbana"
+
+. * variable de la persona nació en zona rural o ciudad mediana
+. gen nac_pue = (p28==1) if p28!=.
+(143 missing values generated)
+
+. gen nac_ciume = (p28==2 | p28==3) if p28!=.
+(143 missing values generated)
+
+. label var nac_pue "Entrevistado nació en un pueblo"
+
+. label var nac_ciume "Entrevistado nació en ciudad mediana"
+
+. * variable de la persona vivía en zona rural o ciudad a los 14 años
+. gen lugar14 = p33 
+(4,371 missing values generated)
+
+. replace lugar14 = p28 if p29==97 // el entrevistado contestó que siempre ha vivido ahí
+(4,225 real changes made)
+
+. recode lugar14 (2 3=2) (4 5=3)
+(lugar14: 4280 changes made)
+
+. label var lugar14 "Tipo de lugar donde vivía a los 14 años"
+
+. label define lugar14 1 "Pueblo" 2 "Ciudad chica-mediana" 3 "Ciudad grande-metrópolis", r
+> eplace
+
+. label values lugar14 lugar14
+
+. * Número de cuartos en la vivienda
+. rename p43 ncuartos
+
+. label var ncuartos "Número de cuartos"
+
+. * El entrevistado tiene alguna discapacidad
+. gen disc = (p22_==1) if p22_!=.
+(8 missing values generated)
+
+. 
+. * bienes del hogar y activos financieros
+. local bien44 loccom terreno casavac depa_alq anim maq_agr negoc
+
+. local bien46 compu estuf lavad refri dvd tv boiler cel aspi microon tosta internet aguae
+> nt bano elect serdom_pe serdom_par telf tvcable
+
+. local bien52 accion ahorr cuenban tcredito
+
+. local lab44 `""Entrevistado tiene local comercial" "Entrevistado tiene terreno" "Entrevi
+> stado tiene casa de vacaciones" "Entrevistado tiene casa para alquiler" "Entrevistado ti
+> ene animales" "Entrevistado tiene maquinaria agrícola" "Entrevistado tiene un negocio""'
+
+. local lab46 `""Entrevistado tiene computadora" "Entrevistado tiene estufa" "Entrevistado
+>  tiene lavadora" "Entrevistado tiene refrigeradora" "Entrevistado tiene dvd" "Entrevista
+> do tiene tv" "Entrevistado tiene boiler" "Entrevistado tiene celular" "Entrevistado tien
+> e aspiradora" "Entrevistado tiene horno de microondas" "Entrevistado tiene tostador" "En
+> trevistado tiene internet" "Entrevistado tiene agua entubada" "Entrevistado tiene baño" 
+> "Entrevistado tiene electricidad " "Entrevistado tiene serv. dom. completo" "Entrevistad
+> o tiene serv. dom. parcial" "Entrevistado tiene teléfono fijo" "Entrevistado tiene tv de
+>  cable""'
+
+. local lab52 `" "Entrevistado tiene acciones" "Entrevistado tiene ahorros" "Entrevistado 
+> tiene cuenta bancaria" "Entrevistado tiene tarjeta de crédito" "'
+
+. foreach i in 44 46 52{
+  2.         local h = 0
+  3.         foreach x of local bien`i'{
+  4.                 local h =`=`h'+1'
+  5.                 gen `x' = (p`i'`:word `h' of `c(alpha)''==1) if p`i'`:word `h' of `c(
+> alpha)''!=.
+  6.                 label var `x' "`:word `h' of `lab`i'''"
+  7. }
+  8. }
+(8 missing values generated)
+(7 missing values generated)
+(8 missing values generated)
+(9 missing values generated)
+(8 missing values generated)
+(10 missing values generated)
+(10 missing values generated)
+(10 missing values generated)
+(8 missing values generated)
+(9 missing values generated)
+(10 missing values generated)
+(12 missing values generated)
+(9 missing values generated)
+(10 missing values generated)
+(16 missing values generated)
+(11 missing values generated)
+(12 missing values generated)
+(17 missing values generated)
+(17 missing values generated)
+(13 missing values generated)
+(15 missing values generated)
+(14 missing values generated)
+(34 missing values generated)
+(470 missing values generated)
+(23 missing values generated)
+(24 missing values generated)
+
+. gen nvehic = p47
+(587 missing values generated)
+
+. replace nvehic = 0 if p47==97
+(5,593 real changes made)
+
+. gen nvehic2=1 if (p47==0 |p47==97) // versión de Vélez y Stabridis 2, lin152 , parece es
+> tar mal calculado
+(4,940 missing values generated)
+
+. replace nvehic2=p47 if p47<97
+(4,821 real changes made)
+
+. label var nvehic "No. de veh. del entrevistasdo"
+
+. 
+. * Ingreso del hogar
+. gen inghog=p49
+(4,320 missing values generated)
+
+. ****Aquí reemplazamos los missing con el promedio del intervalo de ingreso declarado (en
+>  la última categoría por el valor mínimo)****;
+. foreach x in 1500       3000    5250    8500    12000   28000   71000 100000{
+  2.         local h = `=`h'+1'
+  3.         replace inghog = `x'  if  p50==`h'
+  4. }
+(194 real changes made)
+(78 real changes made)
+(17 real changes made)
+(5 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+
+. label var inghog "Ingreso del hogar"
+
+. 
+. * Entrevistado trabaja
+. gen ent_trab = (p62==1 |  p62==2) if p62!=.
+(6 missing values generated)
+
+. label var ent_trab "Entrevistado trabaja"
+
+. 
+. * Ocupación del entrevistado
+. gen oc=p70_op if p70_op!=94  & p70_op!=98
+(3,990 missing values generated)
+
+. replace oc=1300 if oc==13
+(24 real changes made)
+
+. replace oc=int(oc/100)
+(7,011 real changes made)
+
+. gen ocup = 1 if oc==11
+(10,726 missing values generated)
+
+. replace ocup = 0 if ent_trab ==0
+(3,918 real changes made)
+
+. local ocup `" "oc==12" "oc==13 | oc==14" "oc==21" "oc==41" "oc==51 | oc==52 | oc==54" "o
+> c==53 | oc==55" "oc==61 | oc==62" "oc==71 | oc==72" "oc==81 | oc==82" "oc==83" "'
+
+. local h = 2
+
+. foreach x of local ocup{
+  2.         replace ocup = `h++' if `x'
+  3. }
+(130 real changes made)
+(237 real changes made)
+(49 real changes made)
+(634 real changes made)
+(1,705 real changes made)
+(580 real changes made)
+(441 real changes made)
+(1,860 real changes made)
+(906 real changes made)
+(156 real changes made)
+
+. label var ocup "Ocupación del entrevistado"
+
+. label define ocup 0 "No trabaja" 1 "Profesionistas" 2 "Técnicos" 3 "Trabajadores de la e
+> ducación y del arte" 4 "Funcionarios y directivos" 5 "Trabajadores agropecuarios" 6 "Tra
+> bajadores industriales, artesanos y ayudantes" 7 "Operadores de transporte" 8 "Oficinist
+> as" 9 "Comerciantes" 10 "Trabajadores de servicios personales" 11 "Trabajadores de prote
+> cción y vigilancia" , replace
+
+. label values ocup ocup
+
+. * Tipo de empleo: empresario, auto-empleado o empleado
+. gen empr = (p73==1) if p73!=.
+(4,038 missing values generated)
+
+. replace empr = 0 if ent_trab==0
+(3,907 real changes made)
+
+. gen autoemp = (p73==2) if p73!=.
+(4,038 missing values generated)
+
+. replace autoemp = 0 if ent_trab==0
+(3,911 real changes made)
+
+. gen empl = (p73>=3) if p73!=.
+(4,038 missing values generated)
+
+. replace empl = 0 if ent_trab==0
+(3,912 real changes made)
+
+. label var empr    "Entrevistado es empresario"
+
+. label var autoemp "Entrevistado es auto-empleado"
+
+. label var empl    "Entrevistado es empleado"
+
+. 
+. * Horas trabajadas por entrevistado
+. gen hrs_trab=p74
+(4,249 missing values generated)
+
+. replace hrs_trab = 0 if ent_trab==0
+(3,918 real changes made)
+
+. label var hrs_trab "Horas semanales trabajadas por entrevistado"
+
+. * Seguro de salud
+. gen derechh= (p78==1) if p78!=.
+(4,006 missing values generated)
+
+. label var derechh "Entrevistado cuenta con seguro de salud"
+
+. * Recibe salario (dinero, no en especie)
+. gen rec_pago= (p81==1) if p81!=.
+(4,273 missing values generated)
+
+. replace rec_pago = 0 if ent_trab==0
+(3,917 real changes made)
+
+. label var rec_pago "Entrevistado recibe salario"
+
+. * Salario que recibe
+. gen inglab=p82
+(2,635 missing values generated)
+
+. replace inglab = 0 if ent_trab==0
+(3 real changes made)
+
+. ****Aquí reemplazamos los missing con el promedio del intervalo de ingreso declarado (en
+>  la última categoría por el valor mínimo)****;
+. local h = 1
+
+. foreach x in 1500       3000    5250    8500    12000   28000   71000 100000{
+  2.         replace inglab = `x'  if  p83==`h++'
+  3. }
+(266 real changes made)
+(825 real changes made)
+(434 real changes made)
+(167 real changes made)
+(61 real changes made)
+(27 real changes made)
+(5 real changes made)
+(1 real change made)
+
+. * generamos variable para identificar inputados
+. gen ing_input = (p83!=.)
+
+. label var inglab "Ingreso laboral del entrevistado"
+
+. * Salario por hora
+. gen ing_hr = inglab/hrs_trab
+(4,966 missing values generated)
+
+. replace ing_hr = 0 if hrs_trab==0
+(3,918 real changes made)
+
+. * Comparando el hogar actual
+. gen compar_hog = p169
+(82 missing values generated)
+
+. label var compar_hog "Comparación de hogar del entrevistado con otros hogares de México"
+
+. gen compar_hog_pad = 1 if p124==1 | p124==2
+(9,695 missing values generated)
+
+. replace compar_hog_pad = 2 if p124==3 | p124==4
+(2,483 real changes made)
+
+. replace compar_hog_pad = 3 if p124==5 | p124==6
+(3,431 real changes made)
+
+. replace compar_hog_pad = 4 if p124==7 | p124==8
+(3,099 real changes made)
+
+. replace compar_hog_pad = 5 if p124==9 | p124==9
+(455 real changes made)
+
+. label define compar_hog_pad 1 "Más bajo" 2 "Bajo" 3 "Medio" 4 "Alto" 5 "Más alto", repla
+> ce
+
+. label values compar_hog_pad compar_hog_pad
+
+. label var compar_hog_pad "Comparación de hogar del padre con otros hogares de México"
+
+. * Padres hablaban lengua indígena
+. gen pad_hablind = (p129a==1) if p129a!=.
+(689 missing values generated)
+
+. gen mad_hablind = (p129b==1) if p129b!=.
+(361 missing values generated)
+
+. egen indig = anymatch(pad_hablind mad_hablind), values(1)
+
+. label var pad_hablind "Padre habla(ba) lengua indígena"
+
+. label var mad_hablind "Madre habla(ba) lengua indígena"
+
+. * Renombrando escolaridad de los padres
+. rename yearschlp escol_pad
+
+. rename yearschlm escol_mad
+
+. * Padres trabjaban cuando tenía 14 años
+. gen trab_pad = (p138a==1) if p138a!=. & p138a!=7
+(1,390 missing values generated)
+
+. gen trab_mad = (p138b==1) if p138b!=. & p138b!=7
+(789 missing values generated)
+
+. label var trab_pad "Padre del entrevistado trabaja"
+
+. label var trab_mad "Madre del entrevistado trabaja"
+
+. * Ocupación de los padres
+. local pad p139a
+
+. local mad p141b
+
+. foreach y in pad mad{
+  2.         gen oc_`y'=``y''_op if (``y''_op<94 | ``y''_op>1000) & ``y''_op!=.
+  3.         replace oc_`y'=``y''_op*10 if ``y''_op>100 & ``y''_op<1000
+  4.         replace oc_`y'=int(oc_`y'/100)
+  5.         gen ocup_`y' = 0 if trab_`y' ==0
+  6.         local ocup `" "oc_`y'==11" "oc_`y'==12" "oc_`y'==13 | oc_`y'==14" "oc_`y'==21
+> " "oc_`y'==41" "oc_`y'==51 | oc_`y'==52 | oc_`y'==54" "oc_`y'==53 | oc_`y'==55" "oc_`y'=
+> =61 | oc_`y'==62" "oc_`y'==71 | oc_`y'==72" "oc_`y'==81 | oc_`y'==82" "oc_`y'==83" "'
+  7.         local h = 1
+  8.         foreach x of local ocup{
+  9.                 replace ocup_`y' = `h++' if `x'
+ 10.         }
+ 11.         local l="`=substr("``y''",5,1)'"
+ 12.         gen empr_`y' = (p143`l'==1) if p143`l'!=.
+ 13.         replace empr_`y'=0 if trab_`y'==0
+ 14.         gen autoemp_`y' = (p143`l'==2) if p143`l'!=.
+ 15.         replace autoemp_`y'=0 if trab_`y'==0
+ 16.         gen empl_`y' =(p143`l'>=3) if p143`l'!=.
+ 17.         replace empl_`y'=0 if trab_`y'==0
+ 18.         label define ocup_`y' 0 "No trabaja" 1 "Profesionistas" 2 "Técnicos" 3 "Traba
+> jadores de la educación y del arte" 4 "Funcionarios y directivos" 5 "Trabajadores agrope
+> cuarios" 6 "Trabajadores industriales, artesanos y ayudantes" 7 "Operadores de transport
+> e" 8 "Oficinistas" 9 "Comerciantes" 10 "Trabajadores de servicios personales" 11 "Trabaj
+> adores de protección y vigilancia", replace
+ 19.         label values ocup_`y' ocup_`y'
+ 20. }
+(3,333 missing values generated)
+(614 real changes made)
+(8,282 real changes made)
+(10,053 missing values generated)
+(155 real changes made)
+(33 real changes made)
+(120 real changes made)
+(61 real changes made)
+(3,119 real changes made)
+(2,353 real changes made)
+(689 real changes made)
+(144 real changes made)
+(981 real changes made)
+(293 real changes made)
+(233 real changes made)
+(2,597 missing values generated)
+(948 real changes made)
+(2,597 missing values generated)
+(948 real changes made)
+(2,597 missing values generated)
+(948 real changes made)
+(9,138 missing values generated)
+(72 real changes made)
+(1,935 real changes made)
+(2,777 missing values generated)
+(66 real changes made)
+(11 real changes made)
+(50 real changes made)
+(11 real changes made)
+(186 real changes made)
+(232 real changes made)
+(23 real changes made)
+(78 real changes made)
+(353 real changes made)
+(596 real changes made)
+(5 real changes made)
+(9,076 missing values generated)
+(8,224 real changes made)
+(9,076 missing values generated)
+(8,224 real changes made)
+(9,076 missing values generated)
+(8,224 real changes made)
+
+. foreach x in padre madre{
+  2.         local l="`=substr("`x'", 1,3)'"
+  3.         label var ocup_`l' "Ocupación de `x' del entrevistado"
+  4.         label var empr_`l' "`x' del entrevistado es empresario"
+  5.         label var autoemp_`l' "`x' del entrevistado es auto-empleado"
+  6.         label var empl_`l'    "`x' del entrevistado es empleado"
+  7. }
+
+. ***Clasificación ocupacional del padre
+. gen cls_p=p139a_op if p139a_op<94 | (p139a_op>99 & p139a_op<9990)
+(2,799 missing values generated)
+
+. replace cls_p=cls_p*100 if cls_p<100
+(21 real changes made)
+
+. replace cls_p=cls_p*10 if cls_p<1000
+(614 real changes made)
+
+. gen cls1_p=int(cls_p/100)
+(2,799 missing values generated)
+
+. 
+. *Se agrupan los cos de la CMO
+. gen clas_ocup_pad=1 if cls1_p==41
+(7,882 missing values generated)
+
+. replace clas_ocup_pad=0 if trab_pad==0 
+(948 real changes made)
+
+. replace clas_ocup_pad=2 if cls1_p==54 | cls1_p==72 | cls1_p==81 | cls1_p==82 | cls1_p==8
+> 3
+(923 real changes made)
+
+. replace clas_ocup_pad=3 if cls1_p==51 | cls1_p==52 | cls1_p==53 | cls1_p==55
+(2,768 real changes made)
+
+. replace clas_ocup_pad=4 if cls1_p==71
+(858 real changes made)
+
+. replace clas_ocup_pad=5 if cls1_p==12 | cls1_p==13 | cls1_p==14 | cls1_p==62
+(283 real changes made)
+
+. replace clas_ocup_pad=6 if cls1_p==11 | cls1_p==21 | cls1_p==61
+(251 real changes made)
+
+. 
+. 
+. *** Clasificción ocupacional de la madre
+. gen cls_m=p141b_op if p141b_op<94 | (p141b_op>99 & p141b_op<9990)
+(9,358 missing values generated)
+
+. replace cls_m=cls_m*100 if cls_m<100
+(32 real changes made)
+
+. replace cls_m=cls_m*10 if cls_m<1000
+(72 real changes made)
+
+. gen cls1_m=int(cls_m/100)
+(9,358 missing values generated)
+
+. 
+. *Se agrupan los c󤩧os de la CMO
+. gen clas_ocup_mad=1 if cls1_m==41
+(10,815 missing values generated)
+
+. replace clas_ocup_mad=0 if trab_mad==0
+(8,224 real changes made)
+
+. replace clas_ocup_mad=2 if cls1_m==54 | cls1_m==72 | cls1_m==81 | cls1_m==82 | cls1_m==8
+> 3
+(674 real changes made)
+
+. replace clas_ocup_mad=3 if cls1_m==51 | cls1_m==52 | cls1_m==53 | cls1_m==55
+(249 real changes made)
+
+. replace clas_ocup_mad=4 if cls1_m==71
+(296 real changes made)
+
+. replace clas_ocup_mad=5 if cls1_m==12 | cls1_m==13 | cls1_m==14 | cls1_m==62
+(153 real changes made)
+
+. replace clas_ocup_mad=6 if cls1_m==11 | cls1_m==21 | cls1_m==61
+(85 real changes made)
+
+. 
+. label define clases 6 "No manual alta calif" 5 "No manual baja calif" 4 "Comercio" 3 "Ma
+> nual alta calif" 2 "Manual baja calif" 1 "Agrícolas" 0 "No trabajaba", replace
+
+. label values clas_ocup_mad clas_ocup_pad clases
+
+. 
+. 
+. * El entrevistado vivía con ambos padre
+. gen viv_ambpad= (p151==3) if p151!=.
+(36 missing values generated)
+
+. label var viv_ambpad "Entrevistado vivía con ambos padres"
+
+. * La casa en que vivía a los 14 años era propia.
+. gen casa_propia_pad=(p153==2 |  p153==3 | p153==4) if p153!=.
+(302 missing values generated)
+
+. label var casa_propia_pad "Casa propia cuando entrevistado tenía 14 años"
+
+. * número de cuartos en casa donde vivía a los 14 años
+. gen ncuartos_pad = p154 
+(148 missing values generated)
+
+. label var ncuartos_pad "Número de cuartos en casa de los padres" 
+
+. 
+. * bienes del hogar y activos financieros cuando tenía 14 años
+. local bien159 loccom terreno casavac depa_alq accion ahorr cuenban tcredito anim maq_agr
+
+. local bien156 estuf lavad refri tv boiler aspi tosta aguaent bano elect serdom_pe serdom
+> _par telf
+
+. local bien157 tvcable compu dvd microon 
+
+. local bien158 cel internet
+
+. local lab159 `""Padre tenía local comercial" "Padre tenía terreno" "Padre tenía casa de 
+> vacaciones" "Padre tenía casa para alquiler" "Padre tenía acciones" "Padre tenía ahorros
+> " "Padre tenía cuenta bancaria" "Padre tenía tarjeta de crédito" "Padre tenía animales" 
+> "Padre tenía maquinaria agrícola" "'
+
+. local lab156 `" "Padre tenía estufa" "Padre tenía lavadora" "Padre tenía refrigeradora" 
+> "Padre tenía tv" "Padre tenía boiler" "Padre tenía aspiradora" "Padre tenía tostador" "P
+> adre tenía agua entubada" "Padre tenía baño" "Padre tenía electricidad " "Padre tenía se
+> rv. dom. completo" "Padre tenía serv. dom. parcial" "Padre tenía teléfono fijo" "'
+
+. local lab157 `" "Padre tenía tv de cable" "Padre tenía computadora" "Padre tenía dvd" "P
+> adre tenía horno de microondas" "'
+
+. local lab158 `" "Padre tenía celular" "Padre tenía internet" "'
+
+. forvalues i=156/159{
+  2.         local h = 0
+  3.         foreach z of local bien`i'{
+  4.                 local h =`=`h'+1'
+  5.                 gen `z'_pad = (p`i'`:word `h' of `c(alpha)''==1) if p`i'`:word `h' of
+>  `c(alpha)''!=.
+  6.                 label var `z'_pad "`:word `h' of `lab`i'''"
+  7. }
+  8. }
+(27 missing values generated)
+(23 missing values generated)
+(26 missing values generated)
+(21 missing values generated)
+(22 missing values generated)
+(22 missing values generated)
+(26 missing values generated)
+(22 missing values generated)
+(21 missing values generated)
+(19 missing values generated)
+(48 missing values generated)
+(258 missing values generated)
+(30 missing values generated)
+(4,099 missing values generated)
+(4,096 missing values generated)
+(4,097 missing values generated)
+(4,102 missing values generated)
+(6,851 missing values generated)
+(6,850 missing values generated)
+(49 missing values generated)
+(52 missing values generated)
+(46 missing values generated)
+(52 missing values generated)
+(62 missing values generated)
+(93 missing values generated)
+(89 missing values generated)
+(87 missing values generated)
+(53 missing values generated)
+(63 missing values generated)
+
+. gen nvehic_pad = p160
+(272 missing values generated)
+
+. replace nvehic_pad = 0 if p160==97
+(8,104 real changes made)
+
+. label var nvehic_pad "No de vehículos que tenía el padre"
+
+. ** variable Número de hermanos
+. gen nherm = 0 if p161==2
+(9,178 missing values generated)
+
+. replace nherm = 1 if p162>=1 & p162<=3
+(5,176 real changes made)
+
+. replace nherm = 2 if p162>3 & p162!=.
+(3,868 real changes made)
+
+. 
+. label var nherm "No de hermanos del entrevistado"
+
+. label define nherm 0 "No tiene hermanos" 1 "Entre 1 y 3" 2 "Más de 3 hermanos", replace
+
+. label values nherm nherm
+
+. * generando cohortes
+. gen cohort = 1 if edad>=25 & edad<=29
+(7,347 missing values generated)
+
+. replace cohort = 2 if edad>=30 & edad<=39
+(2,825 real changes made)
+
+. replace cohort = 3 if edad>=40 & edad<=49
+(2,037 real changes made)
+
+. replace cohort = 4 if edad>=50 & edad<=59
+(1,427 real changes made)
+
+. replace cohort = 5 if edad>=60
+(1,058 real changes made)
+
+. label define cohort 1 "Entre 25 y 29" 2 "Entre 30 y 39" 3 "Entre 40 y 49" 4 "Entre 50 y 
+> 59" 5 "60 o más", replace
+
+. label values cohort cohort
+
+. 
+. gen cohort2 = 1 if edad>=25 & edad<=34
+(5,798 missing values generated)
+
+. replace cohort2 = 2 if edad>=35 & edad<=44
+(2,312 real changes made)
+
+. replace cohort2 = 3 if edad>=45 & edad<=54
+(1,803 real changes made)
+
+. replace cohort2 = 4 if edad>=55
+(1,683 real changes made)
+
+. 
+. label define cohort2 1 "Entre 25 y 34" 2 "Entre 35 y 44" 3 "Entre 45 y 54" 4 "55 o más",
+>  replace
+
+. label values cohort2 cohort2
+
+. * Creando índice de riqueza padres por cohorte de edad
+. gen riq_pca =.
+(11,001 missing values generated)
+
+. gen riq_mca =.
+(11,001 missing values generated)
+
+. forvalues i=1/4{
+  2.         /*pca
+>         qui: pca estuf_pad lavad_pad refri_pad tv_pad boiler_pad aspi_pad tosta_pad agua
+> ent_pad bano_pad elect_pad serdom_pe_pad  telf_pad loccom_pad terreno_pad casavac_pad de
+> pa_alq_pad accion_pad ahorr_pad cuenban_pad anim_pad maq_agr_pad nvehic_pad if cohort2==
+> `i'
+>         qui:predict pca_c1_`i' pca_c2_`i' pca_c3_`i' if cohort2==`i'
+>         egen pca_`i' = rowtotal(pca_c1_`i' pca_c2_`i' pca_c3_`i') if cohort2==`i'
+>         xtile riq_pca_`i' = pca_`i'  if cohort2==`i', nq(5)
+>         replace riq_pca = riq_pca_`i' if cohort2==`i'
+>         */
+.         *mca
+.         qui: mca estuf_pad lavad_pad refri_pad tv_pad boiler_pad aspi_pad tosta_pad agua
+> ent_pad bano_pad elect_pad serdom_pe_pad  telf_pad loccom_pad terreno_pad casavac_pad de
+> pa_alq_pad accion_pad ahorr_pad cuenban_pad anim_pad maq_agr_pad nvehic_pad if cohort2==
+> `i'
+  3.         qui: predict mca_`i'
+  4.         xtile riq_mca_`i' = mca_`i' if cohort2==`i', nq(5)
+  5.         qui: replace riq_mca = riq_mca_`i' if cohort2==`i'
+  6. }
+
+. recode riq_mca (1=5) (2=4) (4=2) (5=1)
+(riq_mca: 8762 changes made)
+
+. * Quitando efecto de edad sobre índide de riqueza
+. qui: mca estuf_pad lavad_pad refri_pad tv_pad boiler_pad aspi_pad tosta_pad aguaent_pad 
+> bano_pad elect_pad serdom_pe_pad  telf_pad loccom_pad terreno_pad casavac_pad depa_alq_p
+> ad accion_pad ahorr_pad cuenban_pad anim_pad maq_agr_pad nvehic_pad
+
+. predict ind_mca
+(option rowscores assumed)
+(6 missing values generated)
+
+. qui: lpoly ind_mca edad, gen(mca_edad) at(edad) nograph
+
+. gen mca_noedad = ind_mca-mca_edad
+(6 missing values generated)
+
+. xtile riq_mca_edad = mca_noedad, nq(5)
+
+. * etiquetando índices de riqueza
+. label define riq 1 "Más bajo" 2 "Bajo" 3 "Medio" 4 "Alto" 5 "Más alto", replace
+
+. label values riq_mca riq_mca_edad riq_pca riq
+
+. * observaciones con missings
+. egen miss = rowmiss(cohort escol_pad escol_mad lugar14 escol ent_trab  hrs_trab inglab i
+> ndig trab_pad trab_mad riq_mca)
+
+. gen muestra2 = (miss==0)
+
+. 
+. qui reg escol i.sexo i.indig i.disc i.nherm i.niveledu_mad i.niveledu_pad  i.trab_mad i.
+> clas_ocup_pad i.lugar14 i.riq_mca [iw=ponderel]
+
+. gen muestra = e(sample)==1
+
+. 
+. keep idllave strat reg entrvd niv_soc sexo edad* cohort cohort2 urbano lugar14 nac_pue n
+> ac_ciume disc escol niveledu* rez* clas_ocup* riq_mca riq_mca_edad ing_input ///
+> indig ing_hr casa_propia ncuartos loccom terreno casavac depa_alq maq_agr anim negoc com
+> pu estuf lavad refri dvd tv boiler cel aspi microon ///
+> tosta internet aguaent bano elect serdom_pe serdom_par telf tvcable nvehic inghog accion
+>  ahorr cuenban ///
+> tcredito ent_trab ocup empr autoemp empl hrs_trab derechh rec_pago inglab compar_hog com
+> par_hog_pad ///
+> pad_hablind mad_hablind *pad *mad nherm  ponderel muestra 
+
+. 
+. *save "${D}Emovi2011Ent", replace
+. *zipfile "${E}Emovi2011Ent.dta", saving("${D}Emovi2011Ent.zip", replace)
+. log close
+      name:  <unnamed>
+       log:  E:\dropbox\tesina\emovi2011\logs\ModificacioneEmovi2011.log
+  log type:  text
+ closed on:  20 Sep 2016, 00:23:26
+------------------------------------------------------------------------------------------
